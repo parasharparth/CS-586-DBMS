@@ -1,0 +1,46 @@
+SP-GiST is an abbreviation for space partitioned GiST.
+So as we have learned that GiST are balanced tree structured access methods, inspired by R-trees. But these do not support unbalanced
+trees indexing. 
+
+This is why we needed a new indexing framework for spatial partitioning trees. This was when Space partitioned GiST came into picture.
+SP-GiST supports a wide ranfe of different non-balanced data structures such as quad-trees, K-D trees, Radix Trees etc.
+The most common feature of these structures is that they repeatedly divide the space into partitions that might not be of equal size.
+But wherever the searches are well-matched, these could be extremely fast and efficinet.
+
+While SP-GiST is meant to allow the development of custom data types, it does so by providing an interface with a high level of 
+abstraction.
+These are commonly used for efficient disk mapping and searching of tree structures along with taking care of concurrency and logging.
+
+The working of SP-GiST is as follows:-
+Leaf tuples of an SP-GiST tree contains values of the same data types as indexed column and leaf tuple at the root level will always 
+contain the original indexed data value.
+Leap tuple at lower levels might contain only a compressed representation such as a suffix.
+
+The inner tuples are repesented as branching points in the search tree containing one or more nodes which represent groups of similar
+values.Tree descent (commonly called as traversal) is generally easier in SP-GiST.
+
+The primary use of SP-GiST is for data structures used in in-memory usages.They are usually designed as a set of dynamically allocated 
+nodes linked by pointers. This is used with in-memory databases such as Apache Ignite which is developed upon pSQL. 
+
+It is quite difficult to find a general use query for the SP-GiST indexed types as these are highly sensitive to the data that they are being used on.
+But an example is given below: -
+The data being used is: -
+Table geo (points) : 2045446 points from US geonames 
+
+SP-GiST: -
+knn=# create index pt_spgist_idx on geo using spgist(point)
+CREATE INDEX
+Time: 12805.530 ms
+Size: 153,788,416 
+
+The corresponding GiST query is: -
+knn=#create index pt_gist_idx on geo using gist(point);
+CREATE INDEX
+Time: 36672.283 ms
+Size: 153,124,864
+
+As can be seen from the timing figures, SP-GiST is approximately 3 times faster than GiST.
+
+
+
+

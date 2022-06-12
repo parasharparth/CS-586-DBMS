@@ -1,0 +1,119 @@
+There are six datasets as follows:
+
+1) movie_info dataset -> This dataset includes metadata about the movies like their title, release date, budget, etc. It also includes ratings from different critics.
+
+Column Name Column Description
+
+movie_title The title of the movie.
+
+release_date The release date of the movie.
+
+season Because the movies are from the United States, the seasons are based on
+the North American calendar.
+
+phase The phase of the movie. Marvel phases are a way of grouping several films
+in the MCU together.
+
+productionbudgetinmillion(USD) The production budget of a movie.
+
+worldwidecollectioninmillion(USD) World-wide collection of a film.
+
+tomatometer Ratings or scores from Rotten Tomatoes Critics (Converted into decimal
+form)
+
+tomatoaudiencescore Ratings or scores from Rotten Tomatoes Audience (Converted into decimal
+form)
+
+imdb Ratings or scores from IMDB
+
+metascore Ratings or scores from Metacritic Critics (Converted into decimal form
+
+metauserscore Ratings or scores from Metacritic Users
+
+2) europeboxoffice -> This dataset includes box office collections from various countries in European region.
+
+Column Name Column Description
+
+movie_title The title of the movie.
+
+Country_names This includes a number of countries from the European region. It includes 29
+different countries' columns.
+
+OtherEuropeanCountries This is a specific column in the europeboxoffice dataset that states other
+European countries that are not included because it is an added column to
+handle the missing data for the difference between worldwide collection and
+region-wise collection. There is also no official information about the box
+office of the other remaining countries.
+
+3) middleeastandafricabox_office -> This dataset includes box office collections from various countries in Middle east and African region.
+
+Column Name Column Description
+
+movie_title The title of the movie.
+
+Country_names This includes a number of countries from the Middle East and African region.
+It includes 11 different countries' columns.
+
+OtherMiddleEastandAfricanCountries This is a specific column in the middleeastandafricaboxoffice dataset
+that states other Middle East and African countries that are not included
+because it is an added column to handle the missing data for the difference
+between worldwide collection and region-wise collection. There is also no
+official information about the box office of the other remaining countries.
+
+4) asiapacificbox_office -> This dataset includes box office collections from various countries in Asia-Pacific region.
+
+Column Name Column Description
+
+movie_title The title of the movie.
+
+Country_names This includes a number of countries from the Asia-Pacific region. It includes
+15 different countries' columns.
+
+OtherAsiaPacificCountries This is a specific column in the asiapacificboxoffice dataset that states
+other Asia-Pacific countries that are not included because it is an added
+column to handle the missing data for the difference between worldwide
+collection and region-wise collection. There is also no official information
+about the box office of the other remaining countries.
+
+5) northamericabox_office -> This dataset includes box office collections from various countries in North American Region
+
+Column Name Column Description
+
+movie_title The title of the movie.
+
+USAandCanada USA and Canada box office collection, it can also be called as domestic box
+office collection.
+
+Mexico Mexico box office collection. It is also a north American country.
+
+Central America Central America box office collection. it is created to handle the missing
+data for the difference between worldwide collection and region-wise
+collection. There is also no official information about the box office of the
+other remaining countries.
+
+Caribbean Caribbean box office collection. it is created to handle the missing data for
+the difference between worldwide collection and region-wise collection.
+There is also no official information about the box office of the other
+remaining countries.
+
+6) southamericabox_office ->
+
+Column Name Column Description
+
+movie_title The title of the movie.
+
+Country_names This includes a number of countries from the Asia-Pacific region. It includes
+10 different countries' columns.
+
+OtherSouthAmericanCountries This is a specific column in the southamericaboxoffice dataset that
+states other South American countries that are not included because it is an
+added column to handle the missing data for the difference between
+worldwide collection and region-wise collection. There is also no official
+information about the box office of the other remaining countries.
+
+Important Notes:
+● Because the MCU began in 2008, it will not include any Marvel films that are not part of the MCU.
+● Marvel TV series and animated series are not included.
+● The dataset will be updated regularly once a new movie is released and their box office is published.
+● Due to no official information about some countries' box office collections, there can be null values. There are many types to deal with and it may depend on your analysis.
+● Another reason for null values is that some movies were never released in some countries, perhaps due to their censor board or may be due to pandemic.
